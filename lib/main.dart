@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Proje adın mini_katalog ise bu satır doğru kalmalı.
 import 'package:mini_katalog/models/urun_model.dart';
 
 void main() {
@@ -31,7 +30,7 @@ class KatalogAnaSayfa extends StatefulWidget {
 }
 
 class _KatalogAnaSayfaState extends State<KatalogAnaSayfa> {
-  // 4. GÜN: MODEL VE LİSTELEME [cite: 58, 60]
+ 
   final List<Urun> urunler = [
     Urun(ad: "Akıllı Telefon", fiyat: "25.000 TL", aciklama: "8GB RAM, 128GB Hafıza", resim: "telefon.jpg"),
     Urun(ad: "Laptop", fiyat: "45.000 TL", aciklama: "i7 İşlemci, 16GB RAM", resim: "laptop.jpg"),
@@ -47,7 +46,6 @@ class _KatalogAnaSayfaState extends State<KatalogAnaSayfa> {
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      // 5. GÜN: GRIDVIEW TASARIMI [cite: 45, 70]
       body: GridView.builder(
         padding: const EdgeInsets.all(10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -61,7 +59,6 @@ class _KatalogAnaSayfaState extends State<KatalogAnaSayfa> {
           final urun = urunler[index];
           return GestureDetector(
             onTap: () {
-              // 3. GÜN: SAYFA GEÇİŞİ VE VERİ TAŞIMA [cite: 34, 36]
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => DetaySayfasi(urun: urun)),
@@ -80,7 +77,6 @@ class _KatalogAnaSayfaState extends State<KatalogAnaSayfa> {
                         color: Colors.blue[50],
                         borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                       ),
-                      // 4. GÜN: GÖRSEL EKLEME [cite: 41, 73]
                       child: ClipRRect(
                         borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
                         child: Image.asset(
@@ -108,7 +104,6 @@ class _KatalogAnaSayfaState extends State<KatalogAnaSayfa> {
                               color: Colors.red,
                             ),
                             onPressed: () {
-                              // 5. GÜN: STATE GÜNCELLEME [cite: 47, 71]
                               setState(() {
                                 urun.isFavorite = !urun.isFavorite;
                               });
@@ -135,7 +130,7 @@ class DetaySayfasi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(urun.ad)), // [cite: 46]
+      appBar: AppBar(title: Text(urun.ad)), 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
